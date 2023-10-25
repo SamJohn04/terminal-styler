@@ -91,7 +91,7 @@ print("I [0m[92mam[0m [0m[7m[1mgood[0m")
 
 ### Input
 
-```test.java```
+```Test.java```
 ```
 package test;
 
