@@ -11,7 +11,7 @@ CLI tool for adding foreground and background colours, as well as styles such as
 
 To install the program, you may use pip or any package manager of your choice as the program is available on PyPI. To install using pip, execute the following command:
 
-> ```pip install terminal-styler==0.0.1```
+> ```pip install terminal-styler```
 
 ## Execution
 
@@ -51,14 +51,14 @@ The following colours are supported:
 - white
 - grey
 
+RBG colors can be specified in place of the default colors, using the syntax [#hexcode].
+> Eg: ```<console.bg-[#ff0000]>text</console>```
+
 Each color has a dark alternative, except black and grey, represented as dark-\<color\>.
 > Eg: ```<console.color-dark-red>text</console>```
 
 You may also nest console tags within each other.
-> Eg: ```<console.bold>text<console.underline>text</console></console>```
-
-RBG colors can be specified in place of the default colors, using the syntax [#hexcode].
-> Eg: ```<console.bg-[#ff0000]>text</console>```
+> Eg: ```<console.bold>Hello<console.underline>World!</console> How are you?</console>```
 
 **Note:** If you wish to use ```<console``` or ```</console>``` in your text without it being transpiled, you must prefix 'console' with a bang ```!```
 > Eg: ```<!console>text</!console>``` will be transpiled to ```<console>text</console>```

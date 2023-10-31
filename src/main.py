@@ -14,7 +14,7 @@ def get_input_output(args):
         print('To style for the terminal, use the following syntax:')
         print('\t<console.<style1>.<style2>...> ... </console>')
         print('Example:')
-        print('\t<console.BOLD.color-red.bg-green> This is bold and underlined </console>')
+        print('\t<console.bold.color-red.bg-green> This is red text in green bg </console>')
         exit(0)
         
     file_name = args[1]
