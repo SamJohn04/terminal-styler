@@ -46,39 +46,43 @@ def get_styles(input_text):
 def write_output(output_file, output):
     output_file.write(filter_exclaimation(output))
 
-style_codes = get_style_codes()
+def main(args = None):
+    if args is None:
+        args = sys.argv
 
-input_file, output_file = get_input_output(sys.argv)
+    style_codes = get_style_codes()
 
-input_text = input_file.read()
+    input_file, output_file = get_input_output(args)
 
-styles_stack = []
+    input_text = input_file.read()
 
-while input_text.__contains__('<console'):
-    index = input_text.index('<console')
+    styles_stack = []
 
-    if index != 0:
-        write_output(output_file, str(Style(input_text[:index], list(styles_stack), style_codes)))
+    while input_text.__contains__('<console'):
+        index = input_text.index('<console')
 
-    input_text = input_text[index:]
-    
-    index = input_text.index('>')
+        if index != 0:
+            write_output(output_file, str(Style(input_text[:index], list(styles_stack), style_codes)))
 
-    styles = get_styles(input_text[9:index])
-    styles_stack.append(styles)
-    
-    input_text = input_text[index+1:]
-    
-    while input_text.__contains__('</console') and input_text.find('</console') < (input_text.find('<console') if input_text.__contains__('<console') else len(input_text)):
-        index = input_text.index('</console')
-        
-        write_output(output_file, str(Style(input_text[:index], list(styles_stack), style_codes)))
-        
         input_text = input_text[index:]
-        input_text = input_text[input_text.index('>') + 1:]
-        styles_stack.pop()
+        
+        index = input_text.index('>')
 
-write_output(output_file, input_text)
+        styles = get_styles(input_text[9:index])
+        styles_stack.append(styles)
+        
+        input_text = input_text[index+1:]
+        
+        while input_text.__contains__('</console') and input_text.find('</console') < (input_text.find('<console') if input_text.__contains__('<console') else len(input_text)):
+            index = input_text.index('</console')
+            
+            write_output(output_file, str(Style(input_text[:index], list(styles_stack), style_codes)))
+            
+            input_text = input_text[index:]
+            input_text = input_text[input_text.index('>') + 1:]
+            styles_stack.pop()
 
-input_file.close()
-output_file.close()
+    write_output(output_file, input_text)
+
+    input_file.close()
+    output_file.close()

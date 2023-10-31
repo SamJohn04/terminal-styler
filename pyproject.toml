@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "terminal-styler"
+version = "0.0.1"
+authors = [
+  { name="Samuel John", email="samuel.john.codes@gmail.com" },
+]
+description = "CLI tool for adding foreground and background colours, as well as styles such as bold, underline, and more to your terminal output."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.scripts]
+stylet = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["res"]
+
+[tool.setuptools.package-data]
+mypkg = ["*.csv"]
+
+[project.urls]
+"Homepage" = "https://github.com/SamJohn04/terminal-styler"
+"Bug Tracker" = "https://github.com/SamJohn04/terminal-styler/issues"
