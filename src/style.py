@@ -22,7 +22,7 @@ class Style:
         return tuple(int(hex[i:i+hlen//3], 16) for i in range(0, hlen, hlen//3))
     
     def get_style_code(self, style):
-        if not style.__contains__('['):
+        if not '[' in style:
             return self.style_codes.get(style, '0m')
         else:
             style_code = ''

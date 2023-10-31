@@ -23,7 +23,7 @@ def get_input_output(args):
     if len(args) == 3:
         output_file = open(args[2], 'w')
     else:
-        if file_name.__contains__('/'):
+        if '/' in file_name:
             output_file = open(f'{file_name[:file_name.rindex("/") + 1]}styled-{file_name[file_name.rindex("/") + 1:]}', 'w')
         else:
             output_file = open(f'styled-{file_name}', 'w')
@@ -62,7 +62,7 @@ def main(args = None):
 
     styles_stack = []
 
-    while input_text.__contains__('<console'):
+    while '<console' in input_text:
         index = input_text.index('<console')
 
         if index != 0:
@@ -77,7 +77,7 @@ def main(args = None):
         
         input_text = input_text[index+1:]
         
-        while input_text.__contains__('</console') and input_text.find('</console') < (input_text.find('<console') if input_text.__contains__('<console') else len(input_text)):
+        while '</console' in input_text and input_text.find('</console') < (input_text.find('<console') if '<console' in input_text else len(input_text)):
             index = input_text.index('</console')
             
             write_output(output_file, str(Style(input_text[:index], list(styles_stack), style_codes)))
