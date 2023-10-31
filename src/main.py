@@ -5,12 +5,16 @@ import csv
 def get_input_output(args):
 
     if len(args) < 2:
-        print('Usage: python3 main.py <file> [output_file]')
+        print('Usage: stylet <file> [output_file]')
         exit(1)
 
     if args[1] == '-h' or args[1] == '--help':
-        print('Usage: python3 main.py <file> [output_file]')
+        print('Usage: stylet <file> [output_file]')
         print('If output_file is not specified, the output will be saved in a file named styled-<file>')
+        print('To style for the terminal, use the following syntax:')
+        print('\t<console.<style1>.<style2>...> ... </console>')
+        print('Example:')
+        print('\t<console.BOLD.color-red.bg-green> This is bold and underlined </console>')
         exit(0)
         
     file_name = args[1]

@@ -7,11 +7,17 @@ CLI tool for adding foreground and background colours, as well as styles such as
 - Python
 - Support for ANSI codes in your terminal
 
+## Installation
+
+To install the program, you may use pip or any package manager of your choice as the program is available on PyPI. To install using pip, execute the following command:
+
+> ```pip install terminal-styler==0.0.1```
+
 ## Execution
 
 To run the program, execute the following command from the root directory of the project:
 
-> ```python3 main.py <input-file> [<output-file>]```
+> ```stylet <input-file> [<output-file>]```
 
 If no output file is specified, the output file will be 
 
