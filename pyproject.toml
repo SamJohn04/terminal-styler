@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "terminal-styler"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Samuel John", email="samuel.john.codes@gmail.com" },
 ]
@@ -19,11 +19,11 @@ classifiers = [
 [project.scripts]
 stylet = "src.main:main"
 
-[tool.setuptools.packages.find]
-where = ["res"]
-
-[tool.setuptools.package-data]
-mypkg = ["*.csv"]
+[tool.hatch.build]
+include = [
+  "src/*.py",
+  "src/res/style-codes.csv"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/SamJohn04/terminal-styler"

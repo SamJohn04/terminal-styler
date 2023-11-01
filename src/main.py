@@ -1,6 +1,8 @@
 from src.style import Style
 import sys
 import csv
+import pkg_resources
+import io
 
 def get_input_output(args):
 
@@ -30,7 +32,10 @@ def get_input_output(args):
     return input_file, output_file
 
 def get_style_codes():
-    return { style_code[0] : style_code[1] for style_code in csv.reader(open('res/style-codes.csv', 'r')) }
+    resource_path = 'res/style-codes.csv'
+    resource_package = __name__
+    csv_file = pkg_resources.resource_string(resource_package, resource_path)
+    return { style_code[0] : style_code[1] for style_code in csv.reader(io.StringIO(csv_file.decode())) }
 
 def filter_exclaimation(output):
     i = 0
