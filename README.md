@@ -1,6 +1,6 @@
 # Terminal Styler
 
-CLI tool for adding foreground and background colours, as well as styles such as bold, underline, and more to your terminal output.
+CLI tool for transpiling your code, adding foreground and background colours, as well as styles such as bold, underline, and more to your terminal output.
 
 ## Prerequisites
 
