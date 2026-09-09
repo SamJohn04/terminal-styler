@@ -13,7 +13,7 @@ class Style:
         style_code = ''
         for style in self.styles:
             style_code += self.get_style_code(style)
-        default_style_code = self.style_codes.get('DEFAULT', '\33[0m')
+        default_style_code = self.style_codes.get('DEFAULT', '\\33[0m')
         return f'{style_code}{self.string}{default_style_code}'
     
     def hex_to_rgb(self, hex):
@@ -23,9 +23,9 @@ class Style:
     
     def get_style_code(self, style):
         if '[' not in style:
-            return self.style_codes.get(style, '\33[0m')
+            return self.style_codes.get(style, '\\33[0m')
         else:
-            style_code = '\33['
+            style_code = '\\33['
             style_code += ('38' if style[:style.index('-')] == 'COLOR' else '48') + ';2;'
             style = style[style.index('[') + 1:style.index(']')]
             rgb = self.hex_to_rgb(style)
