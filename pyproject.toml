@@ -14,7 +14,7 @@ requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
 ]
 [project.scripts]
 stylet = "src.main:main"
@@ -22,7 +22,6 @@ stylet = "src.main:main"
 [tool.hatch.build]
 include = [
   "src/*.py",
-  "src/res/style-codes.csv"
 ]
 
 [project.urls]

@@ -1,7 +1,5 @@
 # Terminal Styler
 
-> Out Of Date
-
 CLI tool for transpiling your code, adding foreground and background colours, as well as styles such as bold, underline, and more to your terminal output.
 
 ## Prerequisites
@@ -21,9 +19,7 @@ To run the program, execute the following command from the root directory of the
 
 > ```stylet <input-file> [<output-file>]```
 
-If no output file is specified, the output file will be 
-
-> ```styled-<input-file>```.
+If no output file is specified, the output file will be `stdout`
 
 ## Input File
 
@@ -69,13 +65,9 @@ One exclaimation mark will be removed from after each ```<```, if present.
 
 ## Output File
 
-The output file will be a copy of the input file, with the text styled according to the input file. If no output file is specified, the output file will be named styled-*input-file*.
-
-The output file will be of the same type as the input file.
+The output file will be a copy of the input file, with the text styled according to the input file. If no output file is specified, the output file will be `stdout`.
 
 **Note:** If the output file already exists, it will be overwritten.
-
-**Note:** The application will not check if the input file is a valid file, or if the output file is a valid file name.
 
 ## Examples
 
@@ -90,35 +82,8 @@ print("I <console.color-green>am</console> <console.reverse-text.bold>good</cons
 
 ### Output
 
-```styled-test.py```
 ```
-print("[0m[31m[102m[1mHello [0m[31m[102m[1m[4mWorld![0m[31m[102m[1m[0m")
-print("[0m[38;2;184;184;184mHow are you?[0m!")
-print("I [0m[92mam[0m [0m[7m[1mgood[0m")
-```
-
-### Input
-
-```Test.java```
-```
-package test;
-
-public class Test {
-    public static void main(String[] args) {
-        System.out.println("Hello <console.bold>World!</console>");
-    }
-}
-```
-
-### Output
-
-```Test.java```
-```
-package test;
-
-public class Test {
-    public static void main(String[] args) {
-        System.out.println("Hello [0m[1mWorld![0m");
-    }
-}
+print("\33[0m\33[31m\33[102m\33[1mHello \33[0m\33[31m\33[102m\33[1m\33[4mWorld!\33[0m\33[31m\33[102m\33[1m\33[0m")
+print("\33[0m38;2;184;184;184mHow are you?\33[0m!")
+print("I \33[0m\33[92mam\33[0m \33[0m\33[7m\33[1mgood\33[0m")
 ```
